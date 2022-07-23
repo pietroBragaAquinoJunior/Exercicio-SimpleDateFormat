@@ -3,6 +3,7 @@ package main;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -13,7 +14,8 @@ public class Main {
 		/* O programa printa em dois formatos diferentes a data de hoje. */
 		/* O programa também recebe datas do usuário e mostra em dois formatos diferentes */
 		/* O programa também recebe datas UTC e mostra em dois formatos diferentes */
-		/* Exercício feito em Java para praticar Date, SimpleDateFormat, parse, format e Date.from(Instant.parse()) */
+		/* Exercício feito em Java para praticar Date, SimpleDateFormat, parse, */
+		/* format e Date.from(Instant.parse()) e Calendar.getInstance() */
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -42,6 +44,20 @@ public class Main {
 		System.out.println("Você digitou: ");
 		System.out.println(sdf1.format(dataDigitada2));
 		System.out.println(sdf2.format(dataDigitada2));
+		
+		System.out.println("Agora vamos somar 10 horas na sua primeira data digitada: ");
+		System.out.println("Você havia digitado: ");
+		System.out.println(sdf1.format(dataDigitada));
+		System.out.println(sdf2.format(dataDigitada));
+		System.out.println("Com +10 horas: ");
+		
+		Calendar calendario = Calendar.getInstance();
+		calendario.setTime(dataDigitada);
+		calendario.add(calendario.HOUR_OF_DAY, 10);
+		Date novaDataDigitada = calendario.getTime();
+		
+		System.out.println(sdf1.format(novaDataDigitada));
+		System.out.println(sdf2.format(novaDataDigitada));
 		
 		sc.close();
 		
