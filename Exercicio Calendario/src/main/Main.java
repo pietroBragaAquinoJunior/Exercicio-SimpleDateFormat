@@ -53,7 +53,7 @@ public class Main {
 		
 		Calendar calendario = Calendar.getInstance();
 		calendario.setTime(dataDigitada);
-		calendario.add(calendario.HOUR_OF_DAY, 10);
+		calendario.add(Calendar.HOUR_OF_DAY, 10);
 		Date novaDataDigitada = calendario.getTime();
 		
 		System.out.println(sdf1.format(novaDataDigitada));
